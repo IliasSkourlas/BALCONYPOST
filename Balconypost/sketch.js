@@ -100,7 +100,7 @@ function setup(){
   opacityslider1.position( width - opacityslider1.width - 40, 40);
   opacityslider1.style('width', '80px');
 
-  buttonPlus1 = createButton("doit");
+  buttonPlus1 = createButton("Yes");
   buttonPlus1.position(width - buttonPlus1.width - 5 - 40, 40);
   buttonPlus1.mousePressed(doit);
   buttonPlus1.class("input");
@@ -177,11 +177,11 @@ function setup(){
   helpSpace.hide();
   helpSpace.mouseOver(showSpaceHelp);
   helpSpace.mouseOut(hideSpaceHelp);
-  helpCommand = createP("⌘ ⊞");
-  helpCommand.class("help");
-  helpCommand.hide();
-  helpCommand.mouseOver(showCommandHelp);
-  helpCommand.mouseOut(hideCommandHelp);
+  helpS = createP("S");
+  helpS.class("help");
+  helpS.hide();
+  helpS.mouseOver(showShelp);
+  helpS.mouseOut(hideShelp);
   helpOption = createP("⌥ alt");
   helpOption.class("help");
   helpOption.hide();
@@ -192,7 +192,7 @@ function setup(){
   helpControl.hide();
   helpControl.mouseOver(showControlHelp);
   helpControl.mouseOut(hideControlHelp);
-  helpShift = createP("⇧");
+  helpShift = createP("shift");
   helpShift.class("help");
   helpShift.hide();
   helpShift.mouseOver(showShiftHelp);
@@ -222,7 +222,7 @@ function setup(){
   helpH.hide();
   helpH.mouseOver(showHhelp);
   helpH.mouseOut(hideHhelp);
-  helpReverse = createP("§ `");
+  helpReverse = createP("~ ");
   helpReverse.class("help");
   helpReverse.hide();
   helpReverse.mouseOver(showReverseHelp);
@@ -251,7 +251,7 @@ function setup(){
       hideWellcome2();
     }, 4000);
 
-    rgbText = createP(" add color layers <br/> with red  green and  blue  values <br/> a transparency slider...<br/>click doit box to enter <br/> but first press Control... ");
+    rgbText = createP(" add color layers <br/> with red  green and  blue  values <br/> a transparency slider...<br/>click Yes box to enter <br/> but first press Control... ");
     rgbText.position (width - opacityslider1.width - 110 - 40- 200, 180);
     rgbText.hide();
     rgbText.class("secontaryText")
@@ -372,7 +372,7 @@ function hideHelpFunction(){
   helpSpace.hide();
   helpRGB.hide();
   helpLeyers.hide();
-  helpCommand.hide();
+  helpS.hide();
   helpOption.hide();
   helpControl.hide();
   helpShift.hide();
@@ -389,7 +389,7 @@ function showHelpFunction(){
   helpSpace.show();
   helpRGB.show();
   helpLeyers.show();
-  helpCommand.show();
+  helpS.show();
   helpOption.show();
   helpControl.show();
   helpShift.show();
@@ -431,12 +431,12 @@ function showSpaceHelp(){
 function hideSpaceHelp(){
   spaceText.hide();
 }
-function showCommandHelp(){
+function showShelp(){
   if(showHelp){
     commandText.show();
   }
 }
-function hideCommandHelp(){
+function hideShelp(){
   commandText.hide();
 }
 function showOptionHelp(){
@@ -864,7 +864,7 @@ function draw(){
   helpRGB.position(width - mouseX/7 + width/20, height - height/1.06 );
   helpLeyers.position(width- width/1.37, height - height/1.01 - mouseY/4);
   helpSpace.position(width/2 - width/30, height - mouseY/10);
-  helpCommand.position(width/2 - width/9, height - mouseY/10);
+  helpS.position(width/2 - width/5, height - mouseY/4.6);
   helpOption.position(width/2 - width/5, height - mouseY/10);
   helpControl.position(width/2 - width/3.5, height - mouseY/10);
   helpShift.position(width/2 - width/2.8, height - mouseY/6);
@@ -925,9 +925,8 @@ function draw(){
     }else{
       freeze = false;
     };
-
-    //COMMAND (mac)
-    if(keyIsDown(91) || keyIsDown(93)){
+    //s 
+    if(keyIsDown(83) ){
       balcony.erase(); 
       pirate.erase(); 
       // noCursor();
@@ -937,8 +936,9 @@ function draw(){
     };
     // z
     if(keyIsDown(90)){
-      countBlack = 1;
-      countWhite = 1; 
+      countBlack -= offSetMinus;
+      countWhite -= offSetMinus; 
+     
     }
               
 
@@ -1062,6 +1062,9 @@ function draw(){
     // print(width + " " + height);
   }
 };
+
+
+
 
 
 
