@@ -3,14 +3,14 @@
 /////////////////
 // if SPACE you save the drawing and drawing will stop
 // if you click the mouse drawing begins again
-// if you ESC drawing stops and choose file is obvius. You can load a local file & on off leyers
+// if you CONTROL drawing stops and choose file is obvius. You can load a local file & on off leyers
 // if you click again drawing resumes
-// while drawing if you keep command pressed down thwe thicknes of your drawing brass will stay the same.
+// while drawing if you keep Option/Alt pressed down thwe thicknes of your drawing brass will stay the same.
 // if you keep pressing z you substrackt brightness & x add brightness to black.
 // prees V to togle Video on and off
-//option (on mac) ==> start = false
-//move the video width and height by holding down key  1 or 2 and pressing the key arrows
-//keep pressing key 1 or  2  and with the mouse move video or image position
+//Shift (on mac) ==> start = false
+//move the video width and height by holding down key  1 or 2 or 3 and pressing the key arrows
+//keep pressing key 1 or  2 or 3 and with the mouse move video or image position
 //if start = true then § key reverses collors
 //Control key is pressed and video is playing undernith starts erasing 
 // z set brash to thin
@@ -75,7 +75,8 @@ let defaultSequence = true;
 
 let backgroundColor = 5;
 let balconyOpacityValue;
-let showHelp = true;
+let showHelp = false;
+let skipInstructions = true;
 
 
 /////////////////
@@ -238,24 +239,25 @@ function setup(){
   helpArrows.mouseOver(show123help);
   helpArrows.mouseOut(hide123help);
 
-  //secontary text
-    wellcomeText = createP("your balcony....   ");
-    wellcomeText.position (width/3, height/3);
-    wellcomeText.id("wellcome");
-    showHelpFunction();
-    hideWellcome1();
-    setTimeout(() => {
-      wellcomeText = createP("... move, click & hold...or press h for help    ");
-      wellcomeText.position (width/3, height/3);
-      wellcomeText.id("wellcome");
-      hideWellcome2();
-    }, 4000);
 
-    rgbText = createP(" add color layers <br/> with red  green and  blue  values <br/> a transparency slider...<br/>click Yes box to enter <br/> but first press Control... ");
+
+  //secontary text
+  introText("text1", "your balcony", width/3, height/3, "wellcome", 1000, 3000 );
+  introText("text2", " ... move around", width/3, height/3, "wellcome", 5000  , 12000 );
+  introText("text3", " ... click and hold ", width/3, height/3 + 30, "wellcome", 9000  , 8000 );
+  introText("text3", " ... for an introduction press I", width/3 , height/3 + 60, "wellcome", 13000  , 4000 );
+  introText("text4", " ... and if you need help", width/3, height/3, "wellcome", 19000  , 4000 );
+  introText("text5", " ...press H", width/2, height/3, "secontaryText", 24000  , 4000 );
+ 
+ 
+
+
+
+    rgbText = createP(" ...first of all press CONTROL<br/>You can add color above everything <br/> with red  green and  blue  values <br/> and a transparency slider...<br/>then click the Yes box to enter. ");
     rgbText.position (width - opacityslider1.width - 110 - 40- 200, 180);
     rgbText.hide();
     rgbText.class("secontaryText")
-    leyerText = createP("mp4 videos <br/> png or jpg images <br/> layer one is at the bottom  <br/> and your drawing at the top <br/> but first press Control... ");//
+    leyerText = createP("...first of all press CONTROL to open the Menu<br/> You have 4 layer <br/> the one that you draw <br/> and 3 more underneath that are empty <br/>where you can load mp4 videos <br/>or png and jpg images. ");//
     leyerText.position (30, 180);
     leyerText.hide();
     leyerText.class("secontaryText")
@@ -317,6 +319,10 @@ function keyPressed(){
   print(keyCode);
   switch (keyCode) {
 
+    // //i
+    // case 73:
+    //   skipInstructions = true;
+    //   break;
     //SPACE
     case 32:
       save(changeFileName() + '.png');
@@ -368,6 +374,18 @@ function keyPressed(){
     }
   }
 
+  function introText(name, words,positionWidth, posithionHeight, textClass, delay, endTime){
+    setTimeout(() => {
+        name = createP(words, );
+        name.position (positionWidth, posithionHeight);
+        name.id(textClass);
+        setTimeout(() => {
+          name.remove();
+        }, endTime);
+    }, delay);
+ 
+  }
+
 function hideHelpFunction(){
   helpSpace.hide();
   helpRGB.hide();
@@ -401,17 +419,6 @@ function showHelpFunction(){
   helpReverse.show();
   help123.show();
   helpArrows.show();
-}
-
-function hideWellcome1(){
-  setTimeout(() => {
-    wellcomeText.hide();
-  }, 2500);
-}
-function hideWellcome2(){
-  setTimeout(() => {
-    wellcomeText.hide();
-  }, 9000);
 }
 
 //Show help text
@@ -1062,6 +1069,23 @@ function draw(){
     // print(width + " " + height);
   }
 };
+
+// control = MENU
+// shift = STOP START
+// spacebar = SAVE
+// H = elp
+// ~ = REVERS
+// Z = THINER
+// X = DARKER
+// C = LIGHTER
+// S = ERASE
+// V = ON OFF
+// https://icons8.com/icons/set/eraser
+
+//at help when you press key show symbol & text
+
+
+//the first time you press H only ... ALT...then ... ... Layers will show and a press CONTROL text
 
 
 
