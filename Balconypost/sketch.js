@@ -242,12 +242,13 @@ function setup(){
   helpArrows.mouseOver(show123help);
   helpArrows.mouseOut(hide123help);
 
+ 
 
 
   //secontary text
   introText("text1", "your balcony", width/3, height/3, "wellcome", 1000, 3000 );
   introText("text2", " ... move around", width/3, height/3, "wellcome", 6000  , 7000 );
-  introText("text3", " ... click and hold ", width/3, height/3 + 30, "wellcome", 9000  , 4000 );
+  introText("text3", " ... click and drag ", width/3, height/3 + 30, "wellcome", 9000  , 4000 );
   // introText("text3", " ... for an introduction press ..i..", width/3 , height/3 + 60, "wellcome", 11000  , 3000 );
   introText("text4", " ... and if you need help", width/3, height/3, "wellcome", 16000  , 3000 );
   introText("text5", " ...press H", width/2, height/3, "secontaryText", 20000  , 4000 );
@@ -1091,6 +1092,8 @@ function draw(){
 // C = LIGHTER
 // S = ERASE
 // V = ON OFF
+
+
 
 
 
