@@ -27,7 +27,8 @@ let pirate;
 
 let countBlack = 1;
 let countWhite = 1;
-const offPlus = 0.5;
+const offPlus = 0.6;
+// const offPlus = 0.5;
 let offSetPlus = offPlus;
 let offSetMinus = 1;
 let colorOne; 
@@ -160,6 +161,8 @@ function setup(){
 
   balcony = createGraphics(width, height);
   pirate = createGraphics(width, height);
+  how = createGraphics(width, height);
+
 
   //help text
   helpRGB = createP("RGB");
@@ -864,7 +867,7 @@ function OnOffBalcony(){
 /////////////////DRAW
 
 function draw(){
-  // print("frames presecont: " + getFrameRate())
+  print("frames presecont: " + getFrameRate())
   balconyOpacityValue = map(opacityslider1.value(), 0, 255, 0, 1);
   buttonPlus1.id("doit1").style("background-color", `rgb(${r1.value()}, ${g1.value()}, ${b1.value()}, ${balconyOpacityValue})`);
   //
@@ -1061,10 +1064,18 @@ function draw(){
 
   
     }
-//
-
+//  
+    how.background(255, 255); 
+    how.stroke(255, 255, 100, 255);
+    how.ellipse(mouseX, mouseY, countWhite+1);
+    how.noFill();
+    how.stroke(255, 0, 0, 80);
+    how.ellipse(mouseX, mouseY, countBlack+1);
+    how.noFill();
+    
   if(balconyOn){
     image(pirate, 0, 0, width, height);
+    image(how, 0, 0, width, height);
     image(balcony, 0, 0, width, height);
     // print(width + " " + height);
   }
@@ -1080,12 +1091,6 @@ function draw(){
 // C = LIGHTER
 // S = ERASE
 // V = ON OFF
-// https://icons8.com/icons/set/eraser
-
-//at help when you press key show symbol & text
-
-
-//the first time you press H only ... ALT...then ... ... Layers will show and a press CONTROL text
 
 
 
