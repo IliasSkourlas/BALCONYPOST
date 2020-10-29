@@ -1076,7 +1076,7 @@ function draw(){
     
   if(balconyOn){
     image(pirate, 0, 0, width, height);
-    image(how, 0, 0, width, height);
+    // image(how, 0, 0, width, height);
     image(balcony, 0, 0, width, height);
     // print(width + " " + height);
   }
@@ -1092,6 +1092,8 @@ function draw(){
 // C = LIGHTER
 // S = ERASE
 // V = ON OFF
+
+
 
 
 
