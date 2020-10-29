@@ -27,8 +27,8 @@ let pirate;
 
 let countBlack = 1;
 let countWhite = 1;
-const offPlus = 0.6;
-// const offPlus = 0.5;
+// const offPlus = 0.6;
+const offPlus = 0.5;
 let offSetPlus = offPlus;
 let offSetMinus = 1;
 let colorOne; 
@@ -88,6 +88,10 @@ function setup(){
   cnv =createCanvas(windowWidth, windowHeight);
   cnv.mousePressed(whenMouseIsPressed);
   //
+  offSetSlider = createSlider(10, 200, 50 );
+  offSetSlider.position (30, 20);
+  offSetSlider.hide();
+
   inputFloor1 = createFileInput(handleFloor1File);
   inputFloor1.position(30, 140);
   inputFloor1.class('externalFile');
@@ -863,12 +867,27 @@ function onOff3(){
 function OnOffBalcony(){
   balconyOn = !balconyOn;
 }
+function helpCursor(){
+  how.background(255, 255); 
+  how.stroke(255, 255, 100, 255);
+  how.ellipse(mouseX, mouseY, countWhite+1);
+  how.noFill();
+  how.stroke(255, 0, 0, 80);
+  how.ellipse(mouseX, mouseY, countBlack+1);
+  how.noFill();
+  image(how, 0, 0, width, height);
+}
 
 /////////////////
 /////////////////DRAW
 
 function draw(){
   print("frames presecont: " + getFrameRate())
+
+  helpCursor();
+
+  offSetPlus = offSetSlider.value()/100;
+  
   balconyOpacityValue = map(opacityslider1.value(), 0, 255, 0, 1);
   buttonPlus1.id("doit1").style("background-color", `rgb(${r1.value()}, ${g1.value()}, ${b1.value()}, ${balconyOpacityValue})`);
   //
@@ -954,6 +973,7 @@ function draw(){
               
 
     if(showControl === true){
+      offSetSlider.show();
       r1.show();
       g1.show();
       b1.show();
@@ -971,6 +991,7 @@ function draw(){
       opacityslider1.show();
       buttonPlus1.show();
     }else{
+      offSetSlider.hide();
       r1.hide();
       g1.hide();
       b1.hide();
@@ -1066,17 +1087,11 @@ function draw(){
   
     }
 //  
-    // how.background(255, 255); 
-    // how.stroke(255, 255, 100, 255);
-    // how.ellipse(mouseX, mouseY, countWhite+1);
-    // how.noFill();
-    // how.stroke(255, 0, 0, 80);
-    // how.ellipse(mouseX, mouseY, countBlack+1);
-    // how.noFill();
+ 
     
+
   if(balconyOn){
     image(pirate, 0, 0, width, height);
-    // image(how, 0, 0, width, height);
     image(balcony, 0, 0, width, height);
     // print(width + " " + height);
   }
@@ -1092,6 +1107,9 @@ function draw(){
 // C = LIGHTER
 // S = ERASE
 // V = ON OFF
+
+
+
 
 
 
