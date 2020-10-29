@@ -1,4 +1,4 @@
-/////////////////BWSpeed (Balcony Post) localy 1.2&VIDEO
+/////////////////balcony Post 1.3
 /////////////////
 /////////////////
 // if SPACE you save the drawing and drawing will stop
@@ -288,11 +288,11 @@ function setup(){
     zText.position (width/2.4, height/1.4);
     zText.hide();
     zText.class("secontaryText");
-    xText = createP("dark becomes lighter");
+    xText = createP("make it darker");
     xText.position (width/2.4, height/1.4);
     xText.hide();
     xText.class("secontaryText");
-    cText = createP("lighter becomes darker");
+    cText = createP("make it lighter");
     cText.position (width/2.4, height/1.4);
     cText.hide();
     cText.class("secontaryText");
@@ -1091,6 +1091,8 @@ function draw(){
 // C = LIGHTER
 // S = ERASE
 // V = ON OFF
+
+
 
 
 
