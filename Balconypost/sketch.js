@@ -1066,13 +1066,13 @@ function draw(){
   
     }
 //  
-    how.background(255, 255); 
-    how.stroke(255, 255, 100, 255);
-    how.ellipse(mouseX, mouseY, countWhite+1);
-    how.noFill();
-    how.stroke(255, 0, 0, 80);
-    how.ellipse(mouseX, mouseY, countBlack+1);
-    how.noFill();
+    // how.background(255, 255); 
+    // how.stroke(255, 255, 100, 255);
+    // how.ellipse(mouseX, mouseY, countWhite+1);
+    // how.noFill();
+    // how.stroke(255, 0, 0, 80);
+    // how.ellipse(mouseX, mouseY, countBlack+1);
+    // how.noFill();
     
   if(balconyOn){
     image(pirate, 0, 0, width, height);
@@ -1092,6 +1092,7 @@ function draw(){
 // C = LIGHTER
 // S = ERASE
 // V = ON OFF
+
 
 
 
