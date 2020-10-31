@@ -334,7 +334,7 @@ function keyPressed(){
     //SPACE
     case 32:
       save(changeFileName() + '.png');
-      start = false;
+      //start = false;
       break;
     case 17:
       showControl = !showControl;
@@ -884,7 +884,7 @@ function helpCursor(){
 function draw(){
   print("frames presecont: " + getFrameRate())
 
-//   helpCursor();
+//helpCursor();
 
   offSetPlus = offSetSlider.value()/100;
   
