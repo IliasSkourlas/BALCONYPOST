@@ -884,7 +884,7 @@ function helpCursor(){
 function draw(){
   print("frames presecont: " + getFrameRate())
 
-  helpCursor();
+//   helpCursor();
 
   offSetPlus = offSetSlider.value()/100;
   
